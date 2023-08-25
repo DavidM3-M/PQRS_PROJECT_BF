@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -209,36 +209,37 @@
         <!-- formulario de contacto en html y css -->
 
         <div class="content">
-
             <div class="formulario">
                 <h1>Formulario de PQRSF</h1>
                 <h3>Escríbenos y en breve nos pondremos en contacto contigo</h3>
-                <form action="submeter-formulario.php" method="post">
+                <!-- <form action="submeter-formulario.php" method="post"> -->
+                <form action="/formulario/guardarDatos" method="POST">
+                {{-- <form action="{{ route('formulario.guardar.datos') }}" method="POST"> --}}
+                    @csrf
                     <table>
-
                         <tr>
                             <p>
                                 <td>
                                     </select> <label for="selectOption">Tipo de solicitante:
                                     <span class="obligatorio">*</span></label>
-                                    <select id="selectOption" name="selectOption" required="obligatorio">
+                                    <select id="solicitante" name="tipoSolicitante" required="obligatorio">
                                     <option value="" disabled selected>Seleccione</option>
-                                    <option value="opcion1">Anónimo</option>
-                                    <option value="opcion2">Persona Natural</option>
-                                    <option value="opcion3">Persona Jurídica</option>
+                                    <option value="anonimo">Anónimo</option>
+                                    <option value="natural">Persona Natural</option>
+                                    <option value="juridica">Persona Jurídica</option>
                                 </td>
                             </p>
                             <p>
                                 <td>
                                     </select> <label for="selectOption">Tipo de solicitud:
                                     <span class="obligatorio">*</span></label>
-                                    <select id="selectOption" name="selectOption" required="obligatorio">
+                                    <select id="tipoSolicitud" name="selectOption" required="obligatorio">
                                     <option value="" disabled selected>Seleccione</option>
-                                    <option value="opcion1">Petición</option>
-                                    <option value="opcion2">Queja</option>
-                                    <option value="opcion3">Reclamo</option>
-                                    <option value="opcion3">Sugerencia</option>
-                                    <option value="opcion3">Felicitación</option>
+                                    <option value="peticion">Petición</option>
+                                    <option value="queja">Queja</option>
+                                    <option value="reclamo">Reclamo</option>
+                                    <option value="sugerencia">Sugerencia</option>
+                                    <option value="felicitacion">Felicitación</option>
                                 </td>
                             </p>
                         </tr>
@@ -247,13 +248,13 @@
                             <p>
                                 <td><label for="nombre" class="colocar_nombre">Nombres
                                     <span class="obligatorio">*</span></label>
-                                    <input type="text" name="introducir_nombre" id="nombre" required="obligatorio" placeholder="Escribe tus nombres">
+                                    <input type="text" name="nombres" id="nombre" required="obligatorio" placeholder="Escribe tus nombres">
                                 </td>
                             </p>
                             <p>
                                 <td><label for="nombre" class="colocar_nombre">Apellidos
                                     <span class="obligatorio">*</span></label>
-                                    <input type="text" name="introducir_apellido" id="nombre" required="obligatorio" placeholder="Escribe tus apellidos">
+                                    <input type="text" name="apellidos" id="nombre" required="obligatorio" placeholder="Escribe tus apellidos">
                                 </td>
                             </p>
                         </tr>
@@ -262,13 +263,13 @@
                             <p>
                                 <td><label for="telefone" class="colocar_telefono">Teléfono
                                     <span class="obligatorio">*</span></label>
-                                    <input type="tel" name="introducir_telefono" id="telefono" placeholder="Escribe tu teléfono">
+                                    <input type="tel" name="celular" id="telefono" placeholder="Escribe tu teléfono">
                                 </td>
                             </p>
                             <p>
                                 <td><label for="email" class="colocar_email">Correo electrónico
                                     <span class="obligatorio">*</span></label>
-                                    <input type="email" name="introducir_email" id="email" required="obligatorio" placeholder="Escribe tu correo electrónico">
+                                    <input type="email" name="correo" id="email" required="obligatorio" placeholder="Escribe tu correo electrónico">
                                 </td>
                             </p>
                         </tr>
@@ -276,13 +277,13 @@
                         <tr>
                             <p>
                                 <td><label for="direccion" class="colocar_direccion">Dirección de correspondencia</label>
-                                    <input type="text" name="introducir_direccion" id="direccion" placeholder="Escribe tu dirección">
+                                    <input type="text" name="direccion" id="direccion" placeholder="Escribe tu dirección">
                                 </td>
                             </p>
                             <p>
                                 <td><label for="ciudad" class="colocar_ciudad">Ciudad y departamento</label>
                                     <!-- <span class="obligatorio">*</span></label> -->
-                                    <input type="text" name="introducir_ciudad" id="ciudad" placeholder="Escribe tu ciudad y departamento">
+                                    <input type="text" name="ciudad" id="ciudad" placeholder="Escribe tu ciudad y departamento">
                                 </td>
                             </p>
                         </tr>

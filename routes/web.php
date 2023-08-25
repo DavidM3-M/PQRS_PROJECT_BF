@@ -12,8 +12,11 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-Route::get('/inicioSesion', [SesionController::class, 'inicioSesion'])->name('login');
-Route::post('/autentificacion', [SesionController::class, 'iniciarSesion']);
+// Route::get('/inicioSesion', [SesionController::class, 'inicioSesion'])->name('login');
+// Route::post('/autentificacion', [SesionController::class, 'iniciarSesion']);
 Route::get('/', function () {
     return view('index');
 });
+
+
+Route::post('/formulario/guardarDatos', 'FormularioController@guardarDatos')->name('formulario.guardar.datos');
