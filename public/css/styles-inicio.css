@@ -1,0 +1,183 @@
+/* Estilos para el encabezado */
+header {
+    background-color: #00498B;
+    color: white;
+    /* text-align: left; */
+    /* padding: 1rem; */
+}
+
+
+/* Estilos para el logo */
+#logo {
+    width: 150px; /* Ajusta el ancho según tus necesidades */
+    height: auto; /* El alto se ajustará automáticamente según el ancho */
+    text-align: center;
+}
+
+#texto{
+    display: inline-block;
+    vertical-align: top;
+}
+
+
+
+
+
+
+
+/* Importación de fuentes de google fonts */
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans);
+
+
+body{
+height: 100%;
+font-family: 'Noto Sans', sans-serif;
+background-color: #fbfbfb;
+}
+
+.content {
+width: 70%;
+margin: 0 auto; /* Márgenes automáticos para centrar horizontalmente */
+background-color: white;
+padding: 30px;
+border-radius: 10px;
+box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+
+}
+
+input{
+background-color: #fbfbfb;
+width: 608px;
+height: 40px;
+border-radius: 5px;
+border-style: solid;
+border-width: 1px;
+border-color: #00c3f8 ;
+margin-top: 10px;
+padding-left: 10px;
+margin-bottom: 20px;
+}
+
+
+textarea{
+background-color: #fbfbfb;
+width: 70%;
+height: 200px;
+border-radius: 5px;
+border-style: solid;
+border-width: 1px;
+border-color: #00c3f8;
+margin-top: 10px;
+margin-left: 150px;
+padding-left: 20px;
+margin-bottom: 20px;
+padding-top: 15px;
+text-align: left;
+}
+
+
+label{
+display: block;
+float: center;
+}
+
+
+button{
+height: 50px;
+padding-left: 5px;
+padding-right: 5px;
+margin-bottom: 20px;
+margin-top: 10px;
+margin-left: 600px;
+text-transform: uppercase;
+background-color: #000080;
+border-color: #0e0e0e;
+border-style: solid;
+border-radius: 10px;
+width: 100px;
+cursor: pointer;
+justify-content: center;
+}
+
+
+button p{
+color: #fbfbfb;
+font-size: 15px;
+text-align: center;
+}
+
+
+span{
+color: #ab4493;
+}
+
+
+#aviso{
+font-size: 13px;
+color: #0e0e0e;
+}
+
+
+h1{
+font-size: 39px;
+text-align: center;
+padding-bottom: 20px;
+color: #00498B;
+}
+
+
+h3{
+font-size: 16px;
+text-align: center;
+padding-bottom: 30px;
+color: #0e0e0e;
+}
+
+
+p{
+font-size: 14px;
+color: #0e0e0e;
+}
+
+
+::-webkit-input-placeholder {
+color: #a8a8a8;
+}
+
+
+::-webkit-textarea-placeholder {
+color: #a8a8a8;
+}
+
+
+#formulario input:focus{
+outline:0;
+border: 1px solid #97d848;
+}
+
+
+.formulario textarea:focus{
+outline:0;
+border: 1px solid #97d848;
+}
+
+select{
+background-color: #fbfbfb;
+width: 608px;
+height: 40px;
+border-radius: 5px;
+border-style: solid;
+border-width: 1px;
+border-color: #00c3f8 ;
+margin-top: 10px;
+padding-left: 10px;
+margin-bottom: 20px;
+}
+td {
+padding: 16px;
+}
+.centered-label {
+text-align: center;
+font-size: 20px;
+}

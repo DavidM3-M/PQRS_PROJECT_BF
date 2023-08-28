@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\Schema;
 
 class Formulario extends Model
 {
-    use HasFactory;
-
-   
+    protected $table = 'formulario';
+    protected $primaryKey = 'id';
 }

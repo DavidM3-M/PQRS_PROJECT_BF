@@ -18,5 +18,5 @@ Route::get('/', function () {
     return view('index');
 });
 
-
-Route::post('/formulario/guardarDatos', 'FormularioController@guardarDatos')->name('formulario.guardar.datos');
+Route::post('formulario/guardarDatos', 'App\Http\Controllers\FormularioController@guardarDatos');
+// Route::post('/formulario/guardarDatos', 'FormularioController@guardarDatos')->name('formulario.guardar.datos');

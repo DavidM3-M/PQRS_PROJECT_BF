@@ -1,33 +1,45 @@
 <?php
-
 namespace App\Http\Controllers;
+
+// include $_SERVER["DOCUMENT_ROOT"]."\db_connection.php";
 
 use Illuminate\Http\Request;
 use App\Models\Formulario; // Reemplaza "TuModelo" con el nombre de tu modelo
+use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class FormularioController extends Controller
 {
 
     public function guardarDatos(Request $request)
     {
-        dd($request->all());
+        $formulario = DB::table('formulario')->get();
+
         // Validar los datos del formulario si es necesario
         $request->validate([
-            'campo1' => 'required',
-            'campo2' => 'required',
-            // ...otras reglas de validación
+            'tipoSolicitante' => ['required'],
+            'tipoSolicitud' => ['required'],
+            'nombres' => ['required'],
+            'apellidos' => ['required'],
+            'celular' => ['required'],
+            'correo' => ['required'],
+            'descripcion' => ['required']
         ]);
 
         // Crear una nueva instancia del modelo y asignar los valores
         $modelo = new Formulario;
-        dd($modelo);
-        $modelo->campo1 = $request->input('nombre');
-        $modelo->campo2 = $request->input('apellido');
-        // ...asignar otros campos
-
-        // Guardar en la base de datos
+        $modelo->tipoSolicitante = $request->input('tipoSolicitante');
+        $modelo->tipoSolicitud = $request->input('tipoSolicitud');
+        $modelo->nombres = $request->input('nombres');
+        $modelo->apellidos = $request->input('apellidos');
+        $modelo->celular = $request->input('celular');
+        $modelo->correo = $request->input('correo');
+        $modelo->direccion = $request->input('direccion');
+        $modelo->descripcion = $request->input('descripcio');
         $modelo->save();
-
-        return redirect()->route('guardar.datos')->with('success', 'Datos guardados correctamente.');
+        // return back(); // Redirige a la misma página
+        header("Status: 301 Moved Permanently");
+        header("Location: https://www.uniautonoma.edu.co");
+        exit;
     }
 }
