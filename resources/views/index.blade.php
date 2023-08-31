@@ -60,13 +60,13 @@
                             <p>
                                 <td><label for="nombre" class="colocar_nombre">Nombres
                                     <span class="obligatorio">*</span></label>
-                                    <input type="text" name="nombres" id="nombre" required="obligatorio" placeholder="Escribe tus nombres">
+                                    <input type="text" name="nombres" id="nombre" class="input_desactivado" required placeholder="Escribe tus nombres">
                                 </td>
                             </p>
                             <p>
                                 <td><label for="nombre" class="colocar_nombre">Apellidos
                                     <span class="obligatorio">*</span></label>
-                                    <input type="text" name="apellidos" id="apellido" required="obligatorio" placeholder="Escribe tus apellidos">
+                                    <input type="text" name="apellidos" id="apellido" class="input_desactivado" required placeholder="Escribe tus apellidos">
                                 </td>
                             </p>
                         </tr>
@@ -75,13 +75,13 @@
                             <p>
                                 <td><label for="telefone" class="colocar_telefono">Teléfono
                                     <span class="obligatorio">*</span></label>
-                                    <input type="tel" name="celular" id="telefono" placeholder="Escribe tu teléfono">
+                                    <input type="tel" name="celular" id="telefono" class="input_desactivado" required placeholder="Escribe tu teléfono">
                                 </td>
                             </p>
                             <p>
                                 <td><label for="email" class="colocar_email">Correo electrónico
                                     <span class="obligatorio">*</span></label>
-                                    <input type="email" name="correo" id="email" required="obligatorio" placeholder="Escribe tu correo electrónico">
+                                    <input type="email" name="correo" id="email" class="input_desactivado" required placeholder="Escribe tu correo electrónico">
                                 </td>
                             </p>
                         </tr>
@@ -89,12 +89,12 @@
                         <tr>
                             <p>
                                 <td><label for="direccion" class="colocar_direccion">Dirección de correspondencia</label>
-                                    <input type="text" name="direccion" id="direccion" placeholder="Escribe tu dirección">
+                                    <input type="text" name="direccion" id="direccion" class="input_desactivado" placeholder="Escribe tu dirección">
                                 </td>
                             </p>
                             <p>
                                 <td><label for="ciudad" class="colocar_ciudad">Ciudad y departamento</label>
-                                    <input type="text" name="ciudad" id="ciudad" placeholder="Escribe tu ciudad y departamento">
+                                    <input type="text" name="ciudad" id="ciudad" class="input_desactivado" placeholder="Escribe tu ciudad y departamento">
                                 </td>
                             </p>
                         </tr>
@@ -104,7 +104,7 @@
                         <p>
                         <label for="mensaje" class="centered-label">Mensaje
                             <span class="obligatorio">*</span></label>
-                            <textarea name="descripcion" class="texto_mensaje" id="mensaje" required="obligatorio" placeholder="Deja aquí tu comentario..."></textarea>
+                            <textarea name="descripcion" class="texto_mensaje" id="mensaje" class="input_desactivado" required placeholder="Deja aquí tu comentario..."></textarea>
                         </p>
 
                         <button color type="submit" name="enviarFormulario" id="enviarFormulario" onclick="enviarDatos()"> <p>Enviar</p>

@@ -181,3 +181,10 @@ padding: 16px;
 text-align: center;
 font-size: 20px;
 }
+
+.input_desactivado {
+    background-color: #eeee; /* Color de fondo gris */
+    color: #999; /* Color de texto gris */
+    pointer-events: none; /* Evitar interacciones con el input */
+    border-color: #999 ;
+  }

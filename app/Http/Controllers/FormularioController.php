@@ -11,20 +11,37 @@ use RealRashid\SweetAlert\Facades\Alert;
 class FormularioController extends Controller
 {
 
+
+    public function validarDatos(Request $request){
+
+        $tipoSolicitante = $request->input('tipoSolicitante');
+
+    }
+
+
     public function guardarDatos(Request $request)
     {
-        $formulario = DB::table('formulario')->get();
 
-        // Validar los datos del formulario si es necesario
-        $request->validate([
-            'tipoSolicitante' => ['required'],
-            'tipoSolicitud' => ['required'],
-            'nombres' => ['required'],
-            'apellidos' => ['required'],
-            'celular' => ['required'],
-            'correo' => ['required'],
-            'descripcion' => ['required']
-        ]);
+        $tipoSolicitante = $request->input('tipoSolicitante');
+        if($tipoSolicitante != "Anonimo"){
+
+            // Validar los datos del formulario si es necesario
+            $request->validate([
+                'tipoSolicitante' => ['required'],
+                'tipoSolicitud' => ['required'],
+                'nombres' => ['required'],
+                'apellidos' => ['required'],
+                'celular' => ['required'],
+                'correo' => ['required'],
+                'descripcion' => ['required']
+            ]);
+
+        }else{
+            $request->validate([
+                'tipoSolicitud' => ['required'],
+                'descripcion' => ['required']
+            ]);
+        }
 
         // Crear una nueva instancia del modelo y asignar los valores
         $modelo = new Formulario;
@@ -35,7 +52,7 @@ class FormularioController extends Controller
         $modelo->celular = $request->input('celular');
         $modelo->correo = $request->input('correo');
         $modelo->direccion = $request->input('direccion');
-        $modelo->descripcion = $request->input('descripcio');
+        $modelo->descripcion = $request->input('descripcion');
         $modelo->save();
         // return back(); // Redirige a la misma página
         header("Status: 301 Moved Permanently");
