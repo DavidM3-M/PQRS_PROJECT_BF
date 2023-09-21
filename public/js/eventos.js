@@ -51,6 +51,7 @@
         }
     }
 
+
     document.addEventListener("DOMContentLoaded", function() {
         var seleccion = document.getElementById("solicitante");
         var solicitud = document.getElementById("solicitud");
@@ -60,7 +61,7 @@
         const email = document.getElementById("email");
         const ciudad = document.getElementById("ciudad");
         const direccion = document.getElementById("direccion");
-        const mensaje = document.getElementById("ciudad");
+        const mensaje = document.getElementById("mensaje");
 
         seleccion.addEventListener("change", function() {
 
@@ -82,6 +83,8 @@
                 email.classList.add('input_desactivado');
                 direccion.classList.add('input_desactivado');
                 ciudad.classList.add('input_desactivado');
+                mensaje.classList.remove('textarea-form-des');
+                mensaje.classList.add('textarea-form');
                 nombre.disabled = true;
                 apellido.disabled = true;
                 telefono.disabled = true;
@@ -101,6 +104,15 @@
                 email.classList.remove('input_desactivado');
                 direccion.classList.remove('input_desactivado');
                 ciudad.classList.remove('input_desactivado');
+                mensaje.classList.remove('textarea-form-des');
+                nombre.classList.add('input-form');
+                nombre.classList.add('input-form');
+                apellido.classList.add('input-form');
+                telefono.classList.add('input-form');
+                email.classList.add('input-form');
+                direccion.classList.add('input-form');
+                ciudad.classList.add('input-form');
+                mensaje.classList.add('textarea-form');
                 nombre.disabled = false;
                 apellido.disabled = false;
                 telefono.disabled = false;
@@ -111,9 +123,27 @@
                 apellido.required = true;
                 telefono.required = true;
                 email.required = true;
-
             }
-
-
         });
     });
+
+    // Obtén referencias a elementos HTML
+const abrirModal = document.getElementById("abrirModal");
+const miModal = document.getElementById("miModal");
+const cerrarModal = document.getElementById("cerrarModal");
+
+// Abre el modal cuando se hace clic en el enlace
+abrirModal.addEventListener("click", function () {
+  miModal.style.display = "block";
+});
+
+// Cierra el modal cuando se hace clic en la 'x' o fuera del modal
+cerrarModal.addEventListener("click", function () {
+  miModal.style.display = "none";
+});
+
+window.addEventListener("click", function (event) {
+  if (event.target === miModal) {
+    miModal.style.display = "none";
+  }
+});

@@ -1,123 +1,189 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>PQRSF - UNIAUTÓNOMA</title>
-        {{-- <link rel='stylesheet' href='css/styles-inicio.css'> --}}
-        <link rel="stylesheet" href="{{ asset('css/styles-inicio.css') }}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js">;</script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.19/dist/sweetalert2.all.min.js"></script>
-        <script src="{{ asset('js/eventos.js') }}"></script>
-    </head>
-
+<html lang="en">
+   <head>
+      <!-- basic -->
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- mobile metas -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+      <!-- site metas -->
+      <title>PQRSF-Uniautónoma del Cauca</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-- bootstrap css -->
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <!-- style css -->
+      <link rel="stylesheet" href="css/style.css">
+      <!-- Responsive-->
+      <link rel="stylesheet" href="css/responsive.css">
+      <!-- fevicon -->
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      <!-- Scrollbar Custom CSS -->
+      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      <!-- Tweaks for older IEs-->
+      <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+      <script src="js/eventos.js"></script>
+   </head>
+   <!-- body -->
+   {{-- <body class="main-layout"> --}}
     <body>
-        <header>
-            <img id="logo" src="img/logoAut1.png">
-            <h2 id="texto">REGISTRO DE PETICIONES QUEJAS, RECLAMOS, SUGERENCIAS Y FELICITACIONES - CORPORACIÓN UNIVERSITARIA AUTÓNOMA DEL CAUCA</h2>
-        </header>
-        <div class="content">
-            <div class="formulario">
-                <h1>Formulario de PQRSF</h1>
-                <h3>Escríbenos y en breve nos pondremos en contacto contigo</h3>
-                <!-- <form action="submeter-formulario.php" method="post"> -->
-                <form action="formulario/guardarDatos" method="POST">
-                {{-- <form action="{{ route('formulario.guardar.datos') }}" method="POST"> --}}
-                    @csrf
-                    <table>
-                        <tr>
-                            <p>
-                                <td>
-                                    </select> <label for="selectOption">Tipo de solicitante:
-                                    <span class="obligatorio">*</span></label>
-                                    <select id="solicitante" name="tipoSolicitante" required="obligatorio">
-                                    <option value="" disabled selected>Seleccione</option>
-                                    <option value="Anonimo">Anónimo</option>
-                                    <option value="Natural">Persona Natural</option>
-                                    <option value="Juridica">Persona Jurídica</option>
-                                </td>
-                            </p>
-                            <p>
-                                <td>
-                                    </select> <label for="selectOption">Tipo de solicitud:
-                                    <span class="obligatorio">*</span></label>
-                                    <select id="solicitud" name="tipoSolicitud" required="obligatorio">
-                                    <option value="" disabled selected>Seleccione</option>
-                                    <option value="Peticion">Petición</option>
-                                    <option value="Queja">Queja</option>
-                                    <option value="Reclamo">Reclamo</option>
-                                    <option value="Sugerencia">Sugerencia</option>
-                                    <option value="Felicitacion">Felicitación</option>
-                                </td>
-                            </p>
-                        </tr>
+      <!-- loader  -->
+      <!-- <div class="loader_bg"> -->
+         <!-- <div class="loader"><img src="images/loading.gif" alt="#" /></div> -->
+      <!-- </div> -->
+      <!-- end loader -->
 
-                        <tr>
-                            <p>
-                                <td><label for="nombre" class="colocar_nombre">Nombres
-                                    <span class="obligatorio">*</span></label>
-                                    <input type="text" name="nombres" id="nombre" class="input_desactivado" required placeholder="Escribe tus nombres">
-                                </td>
-                            </p>
-                            <p>
-                                <td><label for="nombre" class="colocar_nombre">Apellidos
-                                    <span class="obligatorio">*</span></label>
-                                    <input type="text" name="apellidos" id="apellido" class="input_desactivado" required placeholder="Escribe tus apellidos">
-                                </td>
-                            </p>
-                        </tr>
-
-                        <tr>
-                            <p>
-                                <td><label for="telefone" class="colocar_telefono">Teléfono
-                                    <span class="obligatorio">*</span></label>
-                                    <input type="tel" name="celular" id="telefono" class="input_desactivado" required placeholder="Escribe tu teléfono">
-                                </td>
-                            </p>
-                            <p>
-                                <td><label for="email" class="colocar_email">Correo electrónico
-                                    <span class="obligatorio">*</span></label>
-                                    <input type="email" name="correo" id="email" class="input_desactivado" required placeholder="Escribe tu correo electrónico">
-                                </td>
-                            </p>
-                        </tr>
-
-                        <tr>
-                            <p>
-                                <td><label for="direccion" class="colocar_direccion">Dirección de correspondencia</label>
-                                    <input type="text" name="direccion" id="direccion" class="input_desactivado" placeholder="Escribe tu dirección">
-                                </td>
-                            </p>
-                            <p>
-                                <td><label for="ciudad" class="colocar_ciudad">Ciudad y departamento</label>
-                                    <input type="text" name="ciudad" id="ciudad" class="input_desactivado" placeholder="Escribe tu ciudad y departamento">
-                                </td>
-                            </p>
-                        </tr>
-
-                    </table>
-
-                        <p>
-                        <label for="mensaje" class="centered-label">Mensaje
-                            <span class="obligatorio">*</span></label>
-                            <textarea name="descripcion" class="texto_mensaje" id="mensaje" class="input_desactivado" required placeholder="Deja aquí tu comentario..."></textarea>
-                        </p>
-
-                        <button color type="submit" name="enviarFormulario" id="enviarFormulario" onclick="enviarDatos()"> <p>Enviar</p>
-                        </button>
-
-                        <p class="aviso">
-                        <span class="obligatorio"> * </span>Los campos son obligatorios.
-                        </p>
-                </form>
+      <!-- header -->
+      <header>
+         <!-- header inner -->
+        <div class="header">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2 col-sm-4">
+                      <div class="logo">
+                         <a href="index.html"><img src="images/logo.png" alt="#" /></a>
+                      </div>
+                    </div>
+                    {{-- <div class="col-md-8 col-sm-8">
+                        <div class="right_bottun">
+                            <ul class="conat_info d_none ">
+                                <li><a href="#"><i class="fa fa-user" style="color:blue" aria-hidden="true" title="Iniciar sesión" tooltip-dir="left"></i></a></li>
+                                <li><a href="#"><i class="fa fa-search" style="color:blue" aria-hidden="true" ></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-sm-8">
+                        <input class="input_desactivado" required placeholder="Celular" type="number" name="celular" id="telefono">
+                    </div> --}}
+                </div>
             </div>
         </div>
-    </body>
+      </header>
+      <!-- end header inner -->
+      <!-- end header -->
+      <!-- banner -->
+        <section>
+            <div class="row">
+               {{-- <div class="col-md-1 col-lg-1"></div> --}}
+                <div class="text-bg">
+                    <h1>SISTEMA PQRSF</h1>
+                    <span>Bienvenido al Sistema de Peticiones, Quejas, Reclamos, Solicitudes y Felicitaciones de la Corporación Universitaria Autónoma del Cauca.</span>
+                    <span> <br></span>
+                    <span>Para iniciar sesión presione aquí.</span>
+                    <span>Para consultar el estado de su PRQSF presione <a href="#" class="hero__cta"><u>aquí</u> </span>
+                </div>
+                <div class="row">
+                    <form id="request" class="main_form">
+                        <div class="row">
+                            <div class=" col-md-12">
+                                </select> <label for="selectOption">  </label>
+                                <!-- <span class="obligatorio">*</span></label> -->
+                                <select class="input-form" id="solicitante"  name="tipoSolicitante" required="obligatorio">
+                                <option value="" disabled selected>Seleccione Tipo de Solicitante (Obligatorio)</option>
+                                <option value="Anonimo">Anónimo</option>
+                                <option value="Natural">Persona Natural</option>
+                                <option value="Juridica">Persona Jurídica</option>
+                            </div>
+                            <div class=" col-md-12">
+                                </select>
+                                <!-- <span class="obligatorio">*</span></label> -->
+                                <select class="input-form" id="solicitud" name="tipoSolicitud" required="obligatorio">
+                                <option value="" disabled selected>Seleccione el Tipo de Solicitud (Obligatorio)</option>
+                                <option value="Peticion">Petición</option>
+                                <option value="Queja">Queja</option>
+                                <option value="Reclamo">Reclamo</option>
+                                <option value="Sugerencia">Sugerencia</option>
+                                <option value="Felicitacion">Felicitación</option>
+                            </div>
+                            <div class="col-md-12 ">
+                                <input class="input_desactivado" required placeholder="Nombres" type="type" name="nombres" id="nombre">
+                            </div>
+                            <div class="col-md-12 ">
+                                <input class="input_desactivado" required placeholder="Apellidos" type="type" name="apellidos" id="apellido">
+                            </div>
+                            <div class="col-md-12">
+                                <input class="input_desactivado" required placeholder="Correo electrónico" type="email" name="correo" id="email">
+                            </div>
+                            <div class="col-md-12">
+                                <input class="input_desactivado" required placeholder="Celular" type="number" name="celular" id="telefono">
+                            </div>
+                            <div class="col-md-12 ">
+                                <input class="input_desactivado" placeholder="Dirección de correspondencia" type="type" name="direccion" id="direccion">
+                            </div>
+                            <div class="col-md-12 ">
+                                <input class="input_desactivado" placeholder="Ciudad y Departamento" type="type" name="ciudad" id="ciudad">
+                            </div>
+                            <div class="col-md-12">
+                                <textarea class="textarea-form-des" required placeholder="Descripción" type="type"name="descripcion" id="mensaje"></textarea>
+                            </div>
+                            <div class="col-md-12">
+                                <button class="send_btn">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+       </section>
+       <section class="modal ">
+        <div class="modal__container">
+            <img src="images/modal.svg" class="modal__img">
+            <h2 class="modal__title">¡Bienvenido al sitio!</h2>
+            <p class="modal__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nobis nisi quibusdam doloremque expedita quae ipsam accusamus quisquam quas, culpa tempora. Veniam consectetur deleniti maxime.</p>
+            <a href="#" class="modal__close">Cerrar Modal</a>
+        </div>
+    </section>
+      <!-- end contact section -->
+      <!--  footer -->
+      {{-- <footer>
+         <div class="footer">
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-5">
+                     <ul class="location_icon">
+                        <li><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i></a> Calle 5 No. 3-85 Popayán, Colombia <br>
+                        </li>
+                        <li><a href="#"><i class="fa fa-phone" aria-hidden="true"></i></a>PBX: (602) 8222295</li>
+                        <li><a href="#"><i class="fa fa-whatsapp" aria-hidden="true"></i></a>Whatsapp: 314 639 5495</li>
+                     </ul>
+                  </div>
+               </div>
+            </div>
+            <div class="copyright">
+               <div class="container">
+                  <div class="row">
+                     <div class="col-md-12">
+                        <p><a href="https://www.uniautonoma.edu.co/"> Página Corporación Universitaria Autónoma del Cauca</a></p>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </footer> --}}
+      <!-- end footer -->
+      <!-- Javascript files-->
+      {{-- <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      <script>
+         function openNav() {
+           document.getElementById("mySidepanel").style.width = "250px";
+         }
+
+         function closeNav() {
+           document.getElementById("mySidepanel").style.width = "0";
+         }
+      </script> --}}
+   </body>
 </html>
-
-
 

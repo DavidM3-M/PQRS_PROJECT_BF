@@ -2147,6 +2147,7 @@
                 "core",
                 "datetime",
                 "images",
+                "img",
                 "json",
                 "nette",
                 "paginator",
