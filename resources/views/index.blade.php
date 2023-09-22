@@ -30,6 +30,8 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
       <script src="js/eventos.js"></script>
+
+
    </head>
    <!-- body -->
    {{-- <body class="main-layout"> --}}
@@ -77,36 +79,47 @@
                     <span>Bienvenido al Sistema de Peticiones, Quejas, Reclamos, Solicitudes y Felicitaciones de la Corporación Universitaria Autónoma del Cauca.</span>
                     <span> <br></span>
                     <span>Para iniciar sesión presione aquí.</span>
-                    <span>Para consultar el estado de su PRQSF presione <a href="#" class="hero__cta"><u>aquí</u> </span>
+                    <span>Para consultar el estado de su PRQSF presione <u>aquí</u> </span>
                 </div>
                 <div class="row">
                     <form id="request" class="main_form">
                         <div class="row">
-                            <div class=" col-md-12">
-                                </select> <label for="selectOption">  </label>
+                            <div class=" col-md-12" id="select">
                                 <!-- <span class="obligatorio">*</span></label> -->
                                 <select class="input-form" id="solicitante"  name="tipoSolicitante" required="obligatorio">
-                                <option value="" disabled selected>Seleccione Tipo de Solicitante (Obligatorio)</option>
-                                <option value="Anonimo">Anónimo</option>
-                                <option value="Natural">Persona Natural</option>
-                                <option value="Juridica">Persona Jurídica</option>
-                            </div>
-                            <div class=" col-md-12">
+                                    <option value="" disabled selected>Seleccione Tipo de Solicitante (Obligatorio)</option>
+                                    <option value="Anonimo">Anónimo</option>
+                                    <option value="Natural">Persona Natural</option>
+                                    <option value="Juridica">Persona Jurídica</option>
                                 </select>
+                            </div>
+                            <div class="col-md-12">
                                 <!-- <span class="obligatorio">*</span></label> -->
                                 <select class="input-form" id="solicitud" name="tipoSolicitud" required="obligatorio">
-                                <option value="" disabled selected>Seleccione el Tipo de Solicitud (Obligatorio)</option>
-                                <option value="Peticion">Petición</option>
-                                <option value="Queja">Queja</option>
-                                <option value="Reclamo">Reclamo</option>
-                                <option value="Sugerencia">Sugerencia</option>
-                                <option value="Felicitacion">Felicitación</option>
+                                    <option value="" disabled selected>Seleccione el Tipo de Solicitud (Obligatorio)</option>
+                                    <option value="Peticion">Petición</option>
+                                    <option value="Queja">Queja</option>
+                                    <option value="Reclamo">Reclamo</option>
+                                    <option value="Sugerencia">Sugerencia</option>
+                                    <option value="Felicitacion">Felicitación</option>
+                                </select>
                             </div>
-                            <div class="col-md-12 ">
-                                <input class="input_desactivado" required placeholder="Nombres" type="type" name="nombres" id="nombre">
+                            <div class="col-md-12">
+                                <div class="form-group two-fields">
+                                  <div class="input-group">
+                                    <select class="input_desactivado2" id="tipoIdentificacion" name="tipoIdentificacion" required>
+                                        <option value="" disabled selected>Tipo de documento</option>
+                                        <option value="CC">Cédula de ciudadanía</option>
+                                        <option value="CE">Cédula de Extranjería</option>
+                                        <option value="Pasaporte">Pasaporte</option>
+                                    </select>
+                                    <input name="numeroIdentificacion" id="numeroIdentificacion" type="text" required class="input_desactivado3" placeholder="Número de documento">
+                                  </div>
+                                </div>
                             </div>
-                            <div class="col-md-12 ">
-                                <input class="input_desactivado" required placeholder="Apellidos" type="type" name="apellidos" id="apellido">
+
+                            <div class="col-md-12" id="div-nombres">
+                                <input class="input_desactivado"required placeholder="Nombres y apellidos" type="type" name="nombres" id="nombre">
                             </div>
                             <div class="col-md-12">
                                 <input class="input_desactivado" required placeholder="Correo electrónico" type="email" name="correo" id="email">
