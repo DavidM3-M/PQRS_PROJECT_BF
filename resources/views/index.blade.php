@@ -18,17 +18,19 @@
       <!-- style css -->
       <link rel="stylesheet" href="css/style.css">
       <!-- Responsive-->
-      <link rel="stylesheet" href="css/responsive.css">
+      {{-- <link rel="stylesheet" href="css/responsive.css"> --}}
       <!-- fevicon -->
-      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      {{-- <link rel="icon" href="images/fevicon.png" type="image/gif" /> --}}
       <!-- Scrollbar Custom CSS -->
-      <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+      {{-- <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css"> --}}
       <!-- Tweaks for older IEs-->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen"> --}}
       <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script><![endif]-->
+
+      <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
       <script src="js/eventos.js"></script>
 
 
@@ -79,14 +81,31 @@
                     <span>Bienvenido al Sistema de Peticiones, Quejas, Reclamos, Solicitudes y Felicitaciones de la Corporación Universitaria Autónoma del Cauca.</span>
                     <span> <br></span>
                     <span>Para iniciar sesión presione aquí.</span>
-                    <span>Para consultar el estado de su PRQSF presione <u>aquí</u> </span>
+                    <span>Para consultar el estado de su PRQSF presione <a style="color: blue" href="#openModal"><u>aquí</u></a></span>
+                    <div id="openModal" class="modalDialog">
+                        <div>
+                            <a href="#close" title="Cerrar" class="close">X</a>
+                            <span>Ingrese el número de radicado para consultar:</span>
+                            <form action="../../form-result.php" method="post" target="_blank">
+                                    <div class="col-md-12">
+                                        <div class="form-group two-fields">
+                                          <div class="input-group">
+                                            <input type="search" name="buscarRadicado" class="input_search" placeholder="&#xF002;" style="font-family: Poppins, FontAwesome">
+                                            <input class="search_btn" type="submit" value="Buscar">
+                                          </div>
+                                        </div>
+                                    </div>
+                              </form>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
-                    <form id="request" class="main_form">
+                    <form id="request" class="main_form" action="formulario/guardarDatos" method="POST">
+                        @csrf
                         <div class="row">
                             <div class=" col-md-12" id="select">
                                 <!-- <span class="obligatorio">*</span></label> -->
-                                <select class="input-form" id="solicitante"  name="tipoSolicitante" required="obligatorio">
+                                <select class="input-form" id="solicitante"  name="tipoSolicitante" required>
                                     <option value="" disabled selected>Seleccione Tipo de Solicitante (Obligatorio)</option>
                                     <option value="Anonimo">Anónimo</option>
                                     <option value="Natural">Persona Natural</option>
@@ -95,7 +114,7 @@
                             </div>
                             <div class="col-md-12">
                                 <!-- <span class="obligatorio">*</span></label> -->
-                                <select class="input-form" id="solicitud" name="tipoSolicitud" required="obligatorio">
+                                <select class="input-form" id="solicitud" name="tipoSolicitud" required>
                                     <option value="" disabled selected>Seleccione el Tipo de Solicitud (Obligatorio)</option>
                                     <option value="Peticion">Petición</option>
                                     <option value="Queja">Queja</option>
@@ -113,7 +132,7 @@
                                         <option value="CE">Cédula de Extranjería</option>
                                         <option value="Pasaporte">Pasaporte</option>
                                     </select>
-                                    <input name="numeroIdentificacion" id="numeroIdentificacion" type="text" required class="input_desactivado3" placeholder="Número de documento">
+                                    <input name="numeroIdentificacion" id="numeroIdentificacion" type="number" required class="input_desactivado3" placeholder="Número de documento">
                                   </div>
                                 </div>
                             </div>
@@ -134,24 +153,16 @@
                                 <input class="input_desactivado" placeholder="Ciudad y Departamento" type="type" name="ciudad" id="ciudad">
                             </div>
                             <div class="col-md-12">
-                                <textarea class="textarea-form-des" required placeholder="Descripción" type="type"name="descripcion" id="mensaje"></textarea>
+                                <textarea class="textarea-form-des" required placeholder="Descripción" name="descripcion" id="mensaje"></textarea>
                             </div>
                             <div class="col-md-12">
-                                <button class="send_btn">Enviar</button>
+                                <button type="submit" name="enviarFormulario" id="enviarFormulario" onclick="enviarDatos()" class="send_btn">Enviar</button>
                             </div>
                         </div>
                     </form>
                 </div>
             </div>
        </section>
-       <section class="modal ">
-        <div class="modal__container">
-            <img src="images/modal.svg" class="modal__img">
-            <h2 class="modal__title">¡Bienvenido al sitio!</h2>
-            <p class="modal__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nobis nisi quibusdam doloremque expedita quae ipsam accusamus quisquam quas, culpa tempora. Veniam consectetur deleniti maxime.</p>
-            <a href="#" class="modal__close">Cerrar Modal</a>
-        </div>
-    </section>
       <!-- end contact section -->
       <!--  footer -->
       {{-- <footer>

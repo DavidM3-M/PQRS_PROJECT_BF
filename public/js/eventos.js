@@ -1,9 +1,5 @@
-
-
-
     function validarFormulario(campos) {
         var vacio = campos.length;
-
         for (var i = 0; i < campos.length; i++) {
             if (campos[i] === '') {
                 vacio--;
@@ -20,8 +16,8 @@
     function enviarDatos() {
 
         solicitante = document.getElementById('solicitante').value;
-        console.log(solicitante)
         if(solicitante === "Anonimo"){
+
             var campos = [
                 document.getElementById('solicitante').value,
                 document.getElementById('solicitud').value,
@@ -42,8 +38,8 @@
         }
 
         var validacion = validarFormulario(campos)
-
         if(validacion != false){
+            alert(validacion);
             Swal.fire(
                 'SOLICITUD ENVIADA',
                 '',
@@ -130,19 +126,11 @@
     });
 
 
-    window.addEventListener('load', init, false);
-    function init() {
-        let div = document.querySelector('#div-nombres');
-        div.style.visibility = 'visible';
-        let boton = document.querySelector('#select');
-        console.log(boton);
-        boton.addEventListener('click', function (e) {
-            if(div.style.visibility === 'visible'){
-                div.style.visibility = 'hidden';
-            }else{
-                div.style.visibility = 'visible';
-            }
-        }, false);
-    }
+    function showModal() {
+        document.getElementById('openModal').style.display = 'block';
+      }
 
+      function CloseModal() {
+        document.getElementById('openModal').style.display = 'none';
+      }
 

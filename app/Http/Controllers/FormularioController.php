@@ -12,16 +12,15 @@ class FormularioController extends Controller
 {
 
 
-    public function validarDatos(Request $request){
+    // public function validarDatos(Request $request){
 
-        $tipoSolicitante = $request->input('tipoSolicitante');
+    //     $tipoSolicitante = $request->input('tipoSolicitante');
 
-    }
+    // }
 
 
     public function guardarDatos(Request $request)
     {
-
         $tipoSolicitante = $request->input('tipoSolicitante');
         if($tipoSolicitante != "Anonimo"){
 
@@ -29,8 +28,9 @@ class FormularioController extends Controller
             $request->validate([
                 'tipoSolicitante' => ['required'],
                 'tipoSolicitud' => ['required'],
+                'tipoIdentificacion' => ['required'],
+                'numeroIdentificacion' => ['required'],
                 'nombres' => ['required'],
-                'apellidos' => ['required'],
                 'celular' => ['required'],
                 'correo' => ['required'],
                 'descripcion' => ['required']
@@ -47,16 +47,18 @@ class FormularioController extends Controller
         $modelo = new Formulario;
         $modelo->tipoSolicitante = $request->input('tipoSolicitante');
         $modelo->tipoSolicitud = $request->input('tipoSolicitud');
+        $modelo->tipoIdentificacion = $request->input('tipoIdentificacion');
+        $modelo->numeroIdentificacion = $request->input('numeroIdentificacion');
         $modelo->nombres = $request->input('nombres');
-        $modelo->apellidos = $request->input('apellidos');
         $modelo->celular = $request->input('celular');
         $modelo->correo = $request->input('correo');
         $modelo->direccion = $request->input('direccion');
         $modelo->descripcion = $request->input('descripcion');
         $modelo->save();
         // return back(); // Redirige a la misma página
-        header("Status: 301 Moved Permanently");
-        header("Location: https://www.uniautonoma.edu.co");
+        // header("Status: 301 Moved Permanently");
+        header("Location: http://127.0.0.1:8000");
+        // header("Location: https://www.uniautonoma.edu.co");
         exit;
     }
 }
