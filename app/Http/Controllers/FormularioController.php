@@ -61,4 +61,28 @@ class FormularioController extends Controller
         // header("Location: https://www.uniautonoma.edu.co");
         exit;
     }
+
+
+    public function buscarRadicado(Request $request)
+    {
+
+        $radicado = trim($request->input('numeroRadicado'));
+        $informacion = DB::table('formulario')
+                        ->select('*')
+                        ->where('id', $radicado)
+                        ->get();
+        return view('resultado-busqueda', compact('informacion'));
+    }
+
+    // public function verUsuario($id_usuario)
+    // {
+    //     $usuario = $this->usuariosService->obtenerUsuario($id_usuario);
+    //     $hojas = $this->usuariosService->hojasUsuario($id_usuario);
+    //     $vista = 'PERFIL USUARIO';
+    //     $entidades = $this->entidadesService->obtenerEntidades();
+
+    //     return view('configuraciones.perfil',compact('usuario','hojas','vista','entidades'));
+    // }
+
+
 }

@@ -39,7 +39,7 @@
 
         var validacion = validarFormulario(campos)
         if(validacion != false){
-            alert(validacion);
+
             Swal.fire(
                 'SOLICITUD ENVIADA',
                 '',
@@ -75,6 +75,15 @@
 
 
             if (seleccion.value === "Anonimo") {
+
+                tipoIdentificacion.classList.remove('input_2');
+                numeroIdentificacion.classList.remove('input_3');
+                nombre.classList.remove('input-form');
+                telefono.classList.remove('input-form');
+                email.classList.remove('input-form');
+                direccion.classList.remove('input-form');
+                ciudad.classList.remove('input-form');
+                mensaje.classList.remove('textarea-form-des');
                 tipoIdentificacion.classList.add('input_desactivado2');
                 numeroIdentificacion.classList.add('input_desactivado3');
                 nombre.classList.add('input_desactivado');
@@ -82,13 +91,7 @@
                 email.classList.add('input_desactivado');
                 direccion.classList.add('input_desactivado');
                 ciudad.classList.add('input_desactivado');
-                mensaje.classList.remove('textarea-form-des');
                 mensaje.classList.add('textarea-form');
-                // nombre.disabled = true;
-                // telefono.disabled = true;
-                // email.disabled = true;
-                // direccion.disabled = true;
-                // ciudad.disabled = true;
                 tipoIdentificacion.required = false;
                 numeroIdentificacion.required = false;
                 nombre.required = false;
@@ -96,6 +99,7 @@
                 email.required = false;
 
             } else if (seleccion.value === "Natural" || seleccion.value === "Juridica") {
+
                 tipoIdentificacion.classList.remove('input_desactivado2');
                 numeroIdentificacion.classList.remove('input_desactivado3');
                 nombre.classList.remove('input_desactivado');
@@ -113,24 +117,24 @@
                 direccion.classList.add('input-form');
                 ciudad.classList.add('input-form');
                 mensaje.classList.add('textarea-form');
-                // nombre.disabled = false;
-                // telefono.disabled = false;
-                // email.disabled = false;
-                // direccion.disabled = false;
-                // ciudad.disabled = false;
-                // nombre.required = true;
-                // telefono.required = true;
-                // email.required = true;
+                tipoIdentificacion.required = true;
+                numeroIdentificacion.required = true;
+                nombre.required = true;
+                telefono.required = true;
+                email.required = true;
+                mensaje.required = true;
             }
         });
     });
 
 
-    function showModal() {
-        document.getElementById('openModal').style.display = 'block';
-      }
 
-      function CloseModal() {
-        document.getElementById('openModal').style.display = 'none';
-      }
+    // function showModal() {
+    //     document.getElementById('openModal').style.display = 'block';
+    //   }
+
+    // function CloseModal() {
+    //     document.getElementById('openModal').style.display = 'none';
+    //   }
+
 
