@@ -4,8 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Formulario extends Model
+class InformacionSolicitud extends Model
 {
-    protected $table = 'formulario';
+    protected $table = 'informacion_solicitud';
     protected $primaryKey = 'id';
 }

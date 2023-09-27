@@ -19,7 +19,7 @@ Route::get('/', function () {
 });
 
 Route::post('formulario/guardarDatos', 'App\Http\Controllers\FormularioController@guardarDatos');
-Route::post('formulario/buscarRadicado', 'App\Http\Controllers\FormularioController@buscarRadicado');
+Route::post('buscarRadicado', 'App\Http\Controllers\FormularioController@buscarRadicado');
 // Route::get('obtenerRadicados', 'App\Http\Controllers\FormularioController@obtenerRadicados');
 
 // Route::post('/formulario/guardarDatos', 'FormularioController@guardarDatos')->name('formulario.guardar.datos');

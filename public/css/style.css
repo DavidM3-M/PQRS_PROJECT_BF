@@ -214,10 +214,12 @@ button {
 
 .logo {
      padding-top: 12px;
-     max-width: 00%
+     max-width: 0%
      /* background-size: auto 78%;
      background-repeat: no-repeat; */
 }
+
+
 
 ul.conat_info li {
      display: inline-block;
@@ -824,7 +826,7 @@ textarea {
     height: 40px;
     background: transparent;
     color: black;
-    font-size: 16px;
+    font-size: 14px;
     font-weight: normal;
     padding: 0 10px;
     margin-left: 4px;
@@ -893,7 +895,7 @@ textarea {
     width: 98px;
     color: #fff;
     height: 35px;
-    /* margin-top: 20px !important; */
+    /* margin-top: 10px !important; */
     /* transition: ease-in all 0.5s; */
     text-transform: uppercase;
     border-radius: 30px;

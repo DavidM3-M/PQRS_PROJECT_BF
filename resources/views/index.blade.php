@@ -9,26 +9,28 @@
         <meta name="keywords" content="">
         <meta name="description" content="">
         <meta name="author" content="">
-        <link rel="stylesheet" href="css/bootstrap.min.css">
-        <link rel="stylesheet" href="css/style.css">
+        {{-- <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/style.css"> --}}
+        <link rel="stylesheet" href="{{ asset ('css/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
         <script src="js/eventos.js"></script>
     </head>
     <body>
-      <header>
-        <div class="header">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-md-2 col-sm-4">
-                      <div class="logo">
-                         <a href="index.html"><img src="images/logo.png" alt="#" /></a>
-                      </div>
+        <header>
+            <div class="header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-4">
+                        <div class="logo">
+                            <a href="index.html"><img src="images/logo.png" alt="#" /></a>
+                        </div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-      </header>
+        </header>
         <section>
             <div class="row">
                 <div class="text-bg">
@@ -40,16 +42,17 @@
                     <div id="openModal" class="modalDialog">
                         <div>
                             <a href="#close" title="Cerrar" class="close">X</a>
-                            <span>Ingrese el número de radicado para consultar:</span>
-                            <form action="formulario/buscarRadicado" method="POST">
+                            <span>Ingrese el número de radicado y de documento de identidad sin puntos:</span>
+                            <form action="buscarRadicado" method="POST">
                                 @csrf
                                     <div class="col-md-12">
                                         <div class="form-group two-fields">
                                           <div class="input-group">
-                                            <input type="search" name="numeroRadicado" class="input_search" required placeholder="&#xF002;" style="font-family: Poppins, FontAwesome">
-                                            {{-- <input id="boton_buscar" class="search_btn" type="button" onclick="location.href='obtenerRadicados';" value="Buscar"> --}}
+                                            <input type="number" name="numeroRadicado" class="input_search" required placeholder="Número Radicado" style="font-family: Poppins, FontAwesome">
                                             <input id="boton_buscar" class="search_btn" type="submit" value="Buscar">
-                                          </div>
+                                            {{-- <input type="search" name="numeroRadicado" class="input_search" required placeholder="&#xF002;" style="font-family: Poppins, FontAwesome"> --}}
+                                            {{-- <input id="boton_buscar" class="search_btn" type="button" onclick="location.href='obtenerRadicados';" value="Buscar"> --}}
+                                        </div>
                                         </div>
                                     </div>
                               </form>
@@ -92,7 +95,7 @@
                                 </div>
                             </div>
                             <div class="col-md-12" id="div-nombres">
-                                <input class="input_desactivado"required placeholder="Nombres y apellidos" type="type" name="nombres" id="nombre">
+                                <input class="input_desactivado"required placeholder="Nombres y apellidos" type="text" name="nombres" id="nombre">
                             </div>
                             <div class="col-md-12">
                                 <input class="input_desactivado" required placeholder="Correo electrónico" type="email" name="correo" id="email">
@@ -101,10 +104,10 @@
                                 <input class="input_desactivado" required placeholder="Celular" type="number" name="celular" id="telefono">
                             </div>
                             <div class="col-md-12 ">
-                                <input class="input_desactivado" placeholder="Dirección de correspondencia" type="type" name="direccion" id="direccion">
+                                <input class="input_desactivado" placeholder="Dirección de correspondencia" type="text" name="direccion" id="direccion">
                             </div>
                             <div class="col-md-12 ">
-                                <input class="input_desactivado" placeholder="Ciudad y Departamento" type="type" name="ciudad" id="ciudad">
+                                <input class="input_desactivado" placeholder="Ciudad y Departamento" type="text" name="ciudad" id="ciudad">
                             </div>
                             <div class="col-md-12">
                                 <textarea class="textarea-form-des" required placeholder="Descripción" name="descripcion" id="mensaje"></textarea>
