@@ -58,32 +58,27 @@ class FormularioController extends Controller
 
     public function buscarRadicado(Request $request)
     {
-        $radicado = trim($request->input('numeroRadicado'));
+        $radicadoIdentificacion = trim($request->input('radicadoIdentificacion'));
 
         $informacion = DB::table('formulario')
                         ->join('informacion_solicitud', 'formulario.id', '=', 'informacion_solicitud.radicado')
                         ->select('informacion_solicitud.radicado', 'formulario.created_at', 'informacion_solicitud.respuesta',
-                        'informacion_solicitud.updated_at', 'informacion_solicitud.estado')
-                        ->where('informacion_solicitud.radicado', $radicado)
+                        'informacion_solicitud.updated_at', 'informacion_solicitud.estado', 'formulario.tipoSolicitud')
+                        ->where('informacion_solicitud.radicado', $radicadoIdentificacion)
+                        ->orWhere('formulario.numeroIdentificacion',$radicadoIdentificacion)
                         ->get();
 
-        if(empty($informacion[0])){
+        if($informacion->isEmpty()){
+
             return view('index');
+
         }else{
-            return view('resultado-busqueda', compact('informacion'));
+            if ($informacion->count() == 1) {
+                return view('resultado-busqueda', compact('informacion'));
+            }else{
+                return view('lista-solicitudes', compact('informacion'));
+            }
         }
 
     }
-
-    // public function verUsuario($id_usuario)
-    // {
-    //     $usuario = $this->usuariosService->obtenerUsuario($id_usuario);
-    //     $hojas = $this->usuariosService->hojasUsuario($id_usuario);
-    //     $vista = 'PERFIL USUARIO';
-    //     $entidades = $this->entidadesService->obtenerEntidades();
-
-    //     return view('configuraciones.perfil',compact('usuario','hojas','vista','entidades'));
-    // }
-
-
 }

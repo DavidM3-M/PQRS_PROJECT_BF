@@ -26,34 +26,23 @@
         </header>
 
         <div class="container">
-            <table class="tabla1">
-                <tr>
-                    <th colspan="2" style="color: blue">Información de solicitud</th>
-                </tr>
-                <tr>
-                    <td class="columna1">RADICADO</td>
-                    <td class="columna2">{{$informacion[0]->radicado}}</td>
-                </tr>
-                <tr>
-                    <td class="columna1">FECHA DE SOLICITUD</td>
-                    <td class="columna2">{{$informacion[0]->created_at}}</td>
-                </tr>
-                <tr>
-                    <td class="columna1">ESTADO</td>
-                    <td class="columna2">{{$informacion[0]->estado}}</td>
-                </tr>
-                <tr>
-                    <td class="columna1">RESPUESTA</td>
-                    <td class="columna2">{{$informacion[0]->respuesta}}</td>
-                </tr>
-                <tr>
-                    <td class="columna1">FECHA DE RESPUESTA</td>
-                    <td class="columna2">{{$informacion[0]->updated_at}}</td>
-                </tr>
-                {{-- <tr>
-                    <td>Fila 6, Celda 1</td>
-                    <td class="columna2">Fila 6, Celda 2</td>
-                </tr> --}}
+            <table class="tabla2">
+                <thead>
+                    <tr>
+                        <th>Radicado</th>
+                        <th>Tipo de solicitud</th>
+                        <th>Tipo de solicitud</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach ($informacion as $info)
+                        <tr>
+                            <td>{{ $info->radicado }}</td>
+                            <td>{{ $info->tipoSolicitud }}</td>
+                            <td>{{ $info->created_at }}</td>
+                        </tr>
+                    @endforeach
+                </tbody>
             </table>
         </div>
     </body>

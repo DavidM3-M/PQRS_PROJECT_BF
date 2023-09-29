@@ -76,16 +76,16 @@
 
             if (seleccion.value === "Anonimo") {
 
-                tipoIdentificacion.classList.remove('input_2');
-                numeroIdentificacion.classList.remove('input_3');
-                nombre.classList.remove('input-form');
-                telefono.classList.remove('input-form');
-                email.classList.remove('input-form');
-                direccion.classList.remove('input-form');
-                ciudad.classList.remove('input-form');
+                tipoIdentificacion.classList.remove('input_form');
+                numeroIdentificacion.classList.remove('input_form');
+                nombre.classList.remove('input_form');
+                telefono.classList.remove('input_form');
+                email.classList.remove('input_form');
+                direccion.classList.remove('input_form');
+                ciudad.classList.remove('input_form');
                 mensaje.classList.remove('textarea-form-des');
-                tipoIdentificacion.classList.add('input_desactivado2');
-                numeroIdentificacion.classList.add('input_desactivado3');
+                tipoIdentificacion.classList.add('input_desactivado');
+                numeroIdentificacion.classList.add('input_desactivado');
                 nombre.classList.add('input_desactivado');
                 telefono.classList.add('input_desactivado');
                 email.classList.add('input_desactivado');
@@ -100,22 +100,22 @@
 
             } else if (seleccion.value === "Natural" || seleccion.value === "Juridica") {
 
-                tipoIdentificacion.classList.remove('input_desactivado2');
-                numeroIdentificacion.classList.remove('input_desactivado3');
+                tipoIdentificacion.classList.remove('input_desactivado');
+                numeroIdentificacion.classList.remove('input_desactivado');
                 nombre.classList.remove('input_desactivado');
                 telefono.classList.remove('input_desactivado');
                 email.classList.remove('input_desactivado');
                 direccion.classList.remove('input_desactivado');
                 ciudad.classList.remove('input_desactivado');
                 mensaje.classList.remove('textarea-form-des');
-                tipoIdentificacion.classList.add('input_2');
-                numeroIdentificacion.classList.add('input_3');
-                nombre.classList.add('input-form');
-                nombre.classList.add('input-form');
-                telefono.classList.add('input-form');
-                email.classList.add('input-form');
-                direccion.classList.add('input-form');
-                ciudad.classList.add('input-form');
+                tipoIdentificacion.classList.add('input_form');
+                numeroIdentificacion.classList.add('input_form');
+                nombre.classList.add('input_form');
+                nombre.classList.add('input_form');
+                telefono.classList.add('input_form');
+                email.classList.add('input_form');
+                direccion.classList.add('input_form');
+                ciudad.classList.add('input_form');
                 mensaje.classList.add('textarea-form');
                 tipoIdentificacion.required = true;
                 numeroIdentificacion.required = true;

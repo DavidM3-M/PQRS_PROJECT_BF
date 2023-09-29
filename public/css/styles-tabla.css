@@ -1,0 +1,84 @@
+.tabla1 {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla1 th, td {
+    /* border: 1px solid #fff;
+    border-bottom: 2px solid blue; */
+    padding: 8px;
+    text-align: left;
+    font-family:'Poppins', sans-serif;
+}
+
+.tabla1 th:nth-child(1), td:nth-child(1) {
+    width: 35%; /* Cambia el ancho de la primera columna al 30% del ancho total */
+}
+
+.tabla1 td{
+    height: 100px;
+    border-bottom: 2px dashed gray;
+}
+
+tr:last-child td {
+    border: none; /* Elimina el borde para las celdas de la última fila */
+}
+
+/* .tabla2 th:nth-child(2),
+.tabla2 td:nth-child(2) {
+    width: 150px;
+} */
+
+.columna2{
+    text-align: left;
+}
+
+.columna1{
+
+    font-weight: bold;
+}
+
+@media (max-width: 600px) {
+    .tabla1 {
+        display: block;
+    }
+
+    .tabla1 th, td {
+        width: 50%; /* Divide las columnas en un 50% de ancho cada una */
+        box-sizing: border-box; /* Evita que los bordes agreguen más ancho */
+        float: left; /* Muestra las celdas en la misma línea horizontal */
+    }
+}
+
+/* Establecer el ancho deseado para las tres columnas */
+
+.tabla2 {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla2 td{
+    height: 100px;
+    border-bottom: 2px dashed gray;
+}
+.tabla2 th, td {
+    text-align: center; /* Centrar el contenido en las celdas */
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 2px dashed gray;
+    width: 33.33%; /* Ancho igual para las tres columnas */
+}
+
+/* Estilos para hacer laa2 responsive */
+@media (max-width: 600px) {
+    .tabla2 {
+        display: block; /* Mostrar celdas como bloques de ancho completo */
+        width: 100%; /* Ocupar todo el ancho disponible en pantallas pequeñas */
+        font-size: 1;
+    }
+    .tabla2 th, td {
+        width: 28%; /*
+        box-sizing: border-box; /* Evita que los bordes agreguen más ancho */
+        float: left; /* Muestra las celdas en la misma línea horizontal */
+    }
+}
