@@ -10,41 +10,8 @@
 
 /*--------------------------------------------------------------------- skeleton ---------------------------------------------------------------------*/
 
-/* Estilos adicionales para hacerlo responsive */
-@media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-        max-width: 100%;
-    }
-    .column {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-}
-
-@media (min-width: 768px) {
-    /* Estilos para el encabezado en pantallas medianas y grandes */
-    .header {
-        font-size: 24px;
-    }
-
-    /* Muestra elementos ocultos o vuelve a la navegación normal */
-    .nav-links {
-        display: block;
-    }
-    .menu-icon {
-        display: none;
-    }
-}
-
-@media (max-width: 768px) {
-    .modalDialog {
-        max-width: 100%;
-    }
-}
-
 .header-image {
-    max-width: 100%;
+    max-width: 80%;
     height: auto;
     text-align: center;
 }
@@ -52,7 +19,7 @@
 .header-title {
     font-size: 30px;
     font-family: 'Poppins', sans-serif;
-    margin-top: 50px;
+    margin-top: 30px;
     padding-left: 0;
     margin-left: 0;
     text-align: left;
@@ -73,11 +40,14 @@
     color: black; /* Color del texto */
     margin-bottom: 5%;
     padding: 0;
-    background-image: url(../images/fondo.jpg); /* Ruta de la imagen de fondo */
-    background-size: cover; /* Ajusta la imagen al tamaño del encabezado */
-    background-position: center; /* Centra la imagen en el encabezado */
+    /* Ruta de la imagen de fondo */
+    background-color: #00498B;
+    background-image: linear-gradient(to right, rgb(0,	73,	139), #0084EA, #00498B);
+    /* background-color: #007BC1; */
     color: #fff; /* Color del texto en el encabezado */
     text-align: center; /* Alineación del contenido del encabezado */
+    border-bottom-left-radius: 20px;
+     border-bottom-right-radius: 20px;
 }
 
 /* Estilo para el div izquierdo (30%) */
@@ -88,21 +58,11 @@
 
 /* Estilo para el div derecho (70%) */
 .right-div {
-    flex: 70%; /* Ocupa el 70% del ancho disponible */
+    flex: 80%; /* Ocupa el 70% del ancho disponible */
     padding: 0px; /* Espaciado interior para el contenido */
     margin-top: 0px;
 }
 
-/* Estilo adicional para hacerlo responsive */
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column; /* Apila los divs en pantallas más pequeñas */
-    }
-
-    .left-div, .right-div {
-        flex: auto; /* Ambos divs ocupan todo el ancho en pantallas pequeñas */
-    }
-}
 
 body {
     margin: 0;
@@ -231,16 +191,6 @@ label{
     font-size: 15px;
 }
 
-@media (max-width: 768px) {
-    .container2 {
-        flex-direction: column;
-        max-width: 100%;
-    }
-    .column2 {
-        width: 100%;
-        margin-bottom: 20px;
-    }
-}
 .container2 {
     max-width: 70%;
     margin: 0 auto;
@@ -291,11 +241,11 @@ label{
     pointer-events: auto;
 }
 .modalDialog > div {
-    width: 500px;
+    width: 450px;
     height: 200px;
     position: relative;
     margin: 10% auto;
-    padding: 5px 20px 13px 20px;
+    padding: 8px 20px 12px 20px;
     border-radius: 10px;
     background: rgba(99, 88, 88, 0.897);
     background-image: url(../images/quime.png);
@@ -363,4 +313,61 @@ label{
     border: green;
     transition: ease-in all 0.5s;
 }
+
+
+/* Estilos adicionales para hacerlo responsive */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        max-width: 100%;
+    }
+    .column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .header {
+        font-size: 12px;
+        flex-direction: column;
+    }
+
+    .left-div, .right-div {
+        flex: auto;
+    }
+    .nav-links {
+        display: block;
+    }
+    .menu-icon {
+        display: none;
+    }
+    .modalDialog > div {
+        max-width: 80%;
+        height: max-content;
+    }
+
+    .input_search, .search_btn {
+        margin-top: 10px;
+    }
+
+    .header-title {
+        font-size: 14px;
+        font-family: 'Poppins', sans-serif;
+        padding-left: 0px;
+        margin-top: 0px;
+        text-align: center;
+    }
+    .container2 {
+        flex-direction: column;
+        max-width: 100%;
+    }
+    .column2 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    .column {
+        flex: 1;
+        padding: 0px;
+    }
+}
+
+
 

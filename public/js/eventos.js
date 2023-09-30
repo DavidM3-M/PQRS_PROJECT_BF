@@ -9,8 +9,6 @@
         if(vacio != campos.length){
             return false;
         }
-
-
     }
 
     function enviarDatos() {
@@ -128,13 +126,31 @@
     });
 
 
+    // public/js/ajax.js
 
-    // function showModal() {
-    //     document.getElementById('openModal').style.display = 'block';
-    //   }
+document.addEventListener('DOMContentLoaded', function () {
+    const estadosSelect = document.getElementById('radicado');
+    const ciudadesSelect = document.getElementById('informacionRadicado');
 
-    // function CloseModal() {
-    //     document.getElementById('openModal').style.display = 'none';
-    //   }
+    estadosSelect.addEventListener('change', function () {
+        const estadoId = estadosSelect.value;
+
+        fetch(`/informacionRadicado?estado_id=${estadoId}`)
+            .then(response => response.json())
+            .then(data => {
+                // Limpia y llena el select de ciudades
+                ciudadesSelect.innerHTML = '';
+                data.forEach(informacion => {
+                    const option = document.createElement('option');
+                    option.value = informacion.id;
+                    option.textContent = informacion.nombres;
+                    ciudadesSelect.appendChild(option);
+                });
+            })
+            .catch(error => {
+                console.error('Error al cargar ciudades:', error);
+            });
+    });
+});
 
 

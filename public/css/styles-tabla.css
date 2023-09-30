@@ -31,26 +31,28 @@ tr:last-child td {
 
 .columna2{
     text-align: left;
+
 }
 
 .columna1{
 
     font-weight: bold;
+    text-align: left;
 }
 
-@media (max-width: 600px) {
-    .tabla1 {
-        display: block;
-    }
-
-    .tabla1 th, td {
-        width: 50%; /* Divide las columnas en un 50% de ancho cada una */
-        box-sizing: border-box; /* Evita que los bordes agreguen más ancho */
-        float: left; /* Muestra las celdas en la misma línea horizontal */
-    }
+.select_radicado {
+    border: #0f98f8 solid 2px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    width: 10%;
+    height: 40px;
+    background: transparent;
+    color: black;
+    font-size: 18px;
+    font-weight: normal;
+    font-family: 'Poppins', sans-serif;
+    padding: 0 15px;
 }
-
-/* Establecer el ancho deseado para las tres columnas */
 
 .tabla2 {
     width: 100%;
@@ -62,22 +64,34 @@ tr:last-child td {
     border-bottom: 2px dashed gray;
 }
 .tabla2 th, td {
-    text-align: center; /* Centrar el contenido en las celdas */
+    text-align: left; /* Centrar el contenido en las celdas */
     padding-top: 10px;
     padding-bottom: 10px;
     border-bottom: 2px dashed gray;
-    width: 33.33%; /* Ancho igual para las tres columnas */
+    width: 25%; /* Ancho igual para las tres columnas */
 }
 
 /* Estilos para hacer laa2 responsive */
-@media (max-width: 600px) {
+@media (max-width: 768px) {
     .tabla2 {
         display: block; /* Mostrar celdas como bloques de ancho completo */
         width: 100%; /* Ocupar todo el ancho disponible en pantallas pequeñas */
         font-size: 1;
     }
     .tabla2 th, td {
-        width: 28%; /*
+        width: 20%; /*
+        box-sizing: border-box; /* Evita que los bordes agreguen más ancho */
+        float: left; /* Muestra las celdas en la misma línea horizontal */
+    }
+}
+
+@media (max-width: 600px) {
+    .tabla1 {
+        display: block;
+    }
+
+    .tabla1 th, td {
+        width: 50%; /* Divide las columnas en un 50% de ancho cada una */
         box-sizing: border-box; /* Evita que los bordes agreguen más ancho */
         float: left; /* Muestra las celdas en la misma línea horizontal */
     }

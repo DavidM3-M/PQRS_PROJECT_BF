@@ -8,6 +8,7 @@ use App\Models\Formulario;
 use App\Models\InformacionSolicitud;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
+use Carbon\Carbon;
 
 class FormularioController extends Controller
 {
@@ -55,10 +56,7 @@ class FormularioController extends Controller
         exit;
     }
 
-
-    public function buscarRadicado(Request $request)
-    {
-        $radicadoIdentificacion = trim($request->input('radicadoIdentificacion'));
+    function buscarRadicado($radicadoIdentificacion) {
 
         $informacion = DB::table('formulario')
                         ->join('informacion_solicitud', 'formulario.id', '=', 'informacion_solicitud.radicado')
@@ -67,18 +65,28 @@ class FormularioController extends Controller
                         ->where('informacion_solicitud.radicado', $radicadoIdentificacion)
                         ->orWhere('formulario.numeroIdentificacion',$radicadoIdentificacion)
                         ->get();
+        $hola = response()->json($informacion);
+        dd($hola);
+        return $informacion;
+    }
+
+    public function mostrarInformacion(Request $request)
+    {
+        $radicadoIdentificacion = trim($request->input('radicadoIdentificacion'));
+
+        $informacion = $this->buscarRadicado($radicadoIdentificacion);
 
         if($informacion->isEmpty()){
 
             return view('index');
 
-        }else{
-            if ($informacion->count() == 1) {
-                return view('resultado-busqueda', compact('informacion'));
             }else{
+                if ($informacion->count() == 1) {
+                return view('resultado-busqueda', compact('informacion'));
+                }else{
                 return view('lista-solicitudes', compact('informacion'));
+                }
             }
         }
 
     }
-}

@@ -30,7 +30,7 @@
                     <div class=" col-md-12" id="select">
                         <label for="tipoSolicitante">Tipo de solicitante</label>
                         <select class="input_form" id="solicitante"  name="tipoSolicitante" required>
-                            <option value="" disabled selected>Seleccione...</option>
+                            <option value="Seleccione" disabled selected>Seleccione...</option>
                             <option value="Anonimo">Anónimo</option>
                             <option value="Natural">Persona Natural</option>
                             <option value="Juridica">Persona Jurídica</option>
@@ -90,9 +90,6 @@
                         <button type="submit" name="enviarFormulario" id="enviarFormulario" onclick="enviarDatos()" class="send_btn">Enviar</button>
                     </div>
                 </div>
-                {{-- <div class="column">
-                    <img src="images/quime.png" alt="Imagen 1">
-                </div> --}}
             </div>
         </form>
         <div class="container2">
@@ -102,13 +99,13 @@
                     <div class="modalContent">
                         <a href="#close" title="Cerrar" class="close">X</a>
                         <span>Ingrese el radicado o número de identificación:</span>
-                        <form action="buscarRadicado" method="POST">
+                        <form action="mostrarInformacion" method="POST">
                             @csrf
                             <div class="col-md-12">
                                 <div class="form-group two-fields">
                                     <div class="input-group">
                                         <input type="number" name="radicadoIdentificacion" class="input_search" required placeholder="&#xF002;"style="font-family: Poppins, FontAwesome">
-                                        <input id="boton_buscar" class="search_btn" type="submit" value="Buscar">
+                                        <button class="search_btn" type="submit">BUSCAR</button>
                                         {{-- <input type="search" name="numeroRadicado" class="input_search" required placeholder="&#xF002;"style="font-family: Poppins, FontAwesome"> --}}
                                         {{-- <input id="boton_buscar" class="search_btn" type="button" onclick="location.href='obtenerRadicados';" value="Buscar"> --}}
                                     </div>
@@ -122,6 +119,7 @@
                 <span style="color: blue">Iniciar sesión</span>
             </div>
         </div>
+
     </body>
 </html>
 

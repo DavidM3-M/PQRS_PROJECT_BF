@@ -17,7 +17,7 @@
         <header class="header">
             <div class="left-div">
                 <div class="logo">
-                    <img src="images/logoAut1.png" alt="Imagen de encabezado" class="header-image">
+                    <a href="index.php"><img src="images/logoAut1.png" alt="logoUniautonoma" class="header-image"></a>
                 </div>
             </div>
             <div class="right-div">
@@ -28,11 +28,24 @@
         <div class="container">
             <table class="tabla1">
                 <tr>
-                    <th colspan="2" style="color: blue">Información de solicitud</th>
+                    <th colspan="2">
+                        <label for="radicado">Seleccione la solicitud para más información</label>
+                        <select class="select_radicado" id="seleccionarRadicado">
+                            <option value="{{$informacion[0]->radicado}}">{{ $informacion[0]->radicado }}</option>
+                            @if (count($informacion) > 1)
+                                @for ($i=0; $i < count($informacion); $i++)
+                                    <option value="{{ $informacion[$i]->radicado }}">{{ $informacion[$i]->radicado }}</option>
+                                @endfor
+                            @endif
+                        </select>
+                    </th>
                 </tr>
+                @if ()
+
+                @endif
                 <tr>
                     <td class="columna1">RADICADO</td>
-                    <td class="columna2">{{$informacion[0]->radicado}}</td>
+                    <td id="informacionRadicado" class="columna2"></td>
                 </tr>
                 <tr>
                     <td class="columna1">FECHA DE SOLICITUD</td>
@@ -56,6 +69,11 @@
                 </tr> --}}
             </table>
         </div>
+
+        <script>
+            var datosEnJavaScript = @json($informacion);
+        </script>
+
     </body>
 </html>
 
