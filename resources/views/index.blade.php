@@ -99,7 +99,7 @@
                     <div class="modalContent">
                         <a href="#close" title="Cerrar" class="close">X</a>
                         <span>Ingrese el radicado o número de identificación:</span>
-                        <form action="mostrarInformacion" method="POST">
+                        <form action="buscarRadicado" method="POST">
                             @csrf
                             <div class="col-md-12">
                                 <div class="form-group two-fields">

@@ -128,29 +128,22 @@
 
     // public/js/ajax.js
 
-document.addEventListener('DOMContentLoaded', function () {
-    const estadosSelect = document.getElementById('radicado');
-    const ciudadesSelect = document.getElementById('informacionRadicado');
 
-    estadosSelect.addEventListener('change', function () {
-        const estadoId = estadosSelect.value;
-
-        fetch(`/informacionRadicado?estado_id=${estadoId}`)
-            .then(response => response.json())
-            .then(data => {
-                // Limpia y llena el select de ciudades
-                ciudadesSelect.innerHTML = '';
-                data.forEach(informacion => {
-                    const option = document.createElement('option');
-                    option.value = informacion.id;
-                    option.textContent = informacion.nombres;
-                    ciudadesSelect.appendChild(option);
-                });
-            })
-            .catch(error => {
-                console.error('Error al cargar ciudades:', error);
+    $(function() {
+        $('#seleccionarRadicado').click(function() {
+            let radicado = $('#seleccionarRadicado').val();
+            $.ajax({
+                url: 'FormularioController',
+                type: 'POST',
+                data: { accion: 'cargarDatosPorId', id: radicado },
+                success: function(response) {
+                    $('#informacionRadicado').html(response);
+                },
+                error: function() {
+                    console.error('Error en la solicitud AJAX.');
+                }
             });
+            console.log(radicado);
+        })
     });
-});
-
 

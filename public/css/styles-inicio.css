@@ -38,7 +38,7 @@
     display: flex; /* Utilizamos Flexbox para distribuir los divs horizontalmente */
     height: 120%; /* Altura del header */
     color: black; /* Color del texto */
-    margin-bottom: 5%;
+    margin-bottom: 4%;
     padding: 0;
     /* Ruta de la imagen de fondo */
     background-color: #00498B;
@@ -47,7 +47,7 @@
     color: #fff; /* Color del texto en el encabezado */
     text-align: center; /* Alineación del contenido del encabezado */
     border-bottom-left-radius: 20px;
-     border-bottom-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 /* Estilo para el div izquierdo (30%) */
@@ -78,6 +78,7 @@ body {
     border-radius: 20px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
     background-color: white;
+    margin-bottom: 20px;
 
 }
 
@@ -315,11 +316,12 @@ label{
 }
 
 
-/* Estilos adicionales para hacerlo responsive */
+
 @media (max-width: 768px) {
     .container {
         flex-direction: column;
         max-width: 100%;
+
     }
     .column {
         width: 100%;

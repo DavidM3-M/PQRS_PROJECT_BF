@@ -11,6 +11,7 @@
         <link rel="stylesheet" href="{{ asset('css/styles-tabla.css') }}">
         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
         <script src="js/eventos.js"></script>
     </head>
     <body>
@@ -26,47 +27,50 @@
         </header>
 
         <div class="container">
-            <table class="tabla1">
-                <tr>
-                    <th colspan="2">
-                        <label for="radicado">Seleccione la solicitud para más información</label>
-                        <select class="select_radicado" id="seleccionarRadicado">
-                            <option value="{{$informacion[0]->radicado}}">{{ $informacion[0]->radicado }}</option>
-                            @if (count($informacion) > 1)
-                                @for ($i=0; $i < count($informacion); $i++)
-                                    <option value="{{ $informacion[$i]->radicado }}">{{ $informacion[$i]->radicado }}</option>
-                                @endfor
-                            @endif
-                        </select>
-                    </th>
-                </tr>
-                @if ()
+            <table>
+                <thead>
+                    <tr>
+                        <th colspan="2">
 
-                @endif
-                <tr>
-                    <td class="columna1">RADICADO</td>
-                    <td id="informacionRadicado" class="columna2"></td>
-                </tr>
-                <tr>
-                    <td class="columna1">FECHA DE SOLICITUD</td>
-                    <td class="columna2">{{$informacion[0]->created_at}}</td>
-                </tr>
-                <tr>
-                    <td class="columna1">ESTADO</td>
-                    <td class="columna2">{{$informacion[0]->estado}}</td>
-                </tr>
-                <tr>
-                    <td class="columna1">RESPUESTA</td>
-                    <td class="columna2">{{$informacion[0]->respuesta}}</td>
-                </tr>
-                <tr>
-                    <td class="columna1">FECHA DE RESPUESTA</td>
-                    <td class="columna2">{{$informacion[0]->updated_at}}</td>
-                </tr>
-                {{-- <tr>
-                    <td>Fila 6, Celda 1</td>
-                    <td class="columna2">Fila 6, Celda 2</td>
-                </tr> --}}
+
+                                <label for="radicado">Seleccione la solicitud para más información</label>
+                                <select class="select_radicado" id="seleccionarRadicado">
+                                    <option value="{{$informacion[0]->radicado}}">{{ $informacion[0]->radicado }}</option>
+                                    @if (count($informacion) > 1)
+                                        @for ($i=0; $i < count($informacion); $i++)
+                                            <option value="{{ $informacion[$i]->radicado }}">{{ $informacion[$i]->radicado }}</option>
+                                        @endfor
+                                    @endif
+                                </select>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="informacionSolicitud">
+                    <tr>
+                        <td class="columna1">RADICADO</td>
+                        <td class="columna2" id="informacionRadicado"></td>
+                    </tr>
+                    <tr>
+                        <td class="columna1">FECHA DE SOLICITUD</td>
+                        <td class="columna2">{{$informacion[0]->created_at}}</td>
+                    </tr>
+                    <tr>
+                        <td class="columna1">ESTADO</td>
+                        <td class="columna2">{{$informacion[0]->estado}}</td>
+                    </tr>
+                    <tr>
+                        <td class="columna1">RESPUESTA</td>
+                        <td class="columna2">{{$informacion[0]->respuesta}}</td>
+                    </tr>
+                    <tr>
+                        <td class="columna1">FECHA DE RESPUESTA</td>
+                        <td class="columna2">{{$informacion[0]->updated_at}}</td>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                </tbody>
             </table>
         </div>
 
