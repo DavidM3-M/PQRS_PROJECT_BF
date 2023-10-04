@@ -131,19 +131,52 @@
 
     $(function() {
         $('#seleccionarRadicado').click(function() {
-            let radicado = $('#seleccionarRadicado').val();
+            var radicado = $('#seleccionarRadicado').val();
+
             $.ajax({
-                url: 'FormularioController',
-                type: 'POST',
-                data: { accion: 'cargarDatosPorId', id: radicado },
-                success: function(response) {
-                    $('#informacionRadicado').html(response);
+                url: '/mostrarInformacion',
+                method: 'POST',
+                // data: $("#form-radicado").serialize(),
+                data: {
+                    radicado:radicado,
+                    _token: $('meta[name="csrf-token"]').attr('content'), // Obtiene el valor del token del meta tag
+                    // otros datos que deseas enviar
                 },
-                error: function() {
-                    console.error('Error en la solicitud AJAX.');
-                }
+            }).done(function(res){
+                let informacion = JSON.parse(res);
+                document.getElementById('informacionRadicado').innerHTML = informacion[0].radicado;
+                document.getElementById('fechaSolicitud').innerHTML = informacion[0].created_at;
+                document.getElementById('descripcionSolicitud').innerHTML = informacion[0].descripcion;
+                document.getElementById('estado').innerHTML = informacion[0].estado;
+                document.getElementById('respuesta').innerHTML = informacion[0].respuesta;
+                document.getElementById('fechaRespuesta').innerHTML = informacion[0].updated_at;
             });
-            console.log(radicado);
-        })
+        });
+    });
+
+
+
+    $(function() {
+        $('#radicadoUnico').ready(function() {
+            var radicado = $('#radicadoUnico').val();
+
+            $.ajax({
+                url: '/mostrarInformacion',
+                method: 'POST',
+                // data: $("#form-radicado").serialize(),
+                data: {
+                    radicado:radicado,
+                    _token: $('meta[name="csrf-token"]').attr('content'),
+                },
+            }).done(function(res){
+                let informacion = JSON.parse(res);
+                document.getElementById('informacionRadicado').innerHTML = informacion[0].radicado;
+                document.getElementById('fechaSolicitud').innerHTML = informacion[0].created_at;
+                document.getElementById('descripcionSolicitud').innerHTML = informacion[0].descripcion;
+                document.getElementById('estado').innerHTML = informacion[0].estado;
+                document.getElementById('respuesta').innerHTML = informacion[0].respuesta;
+                document.getElementById('fechaRespuesta').innerHTML = informacion[0].updated_at;
+            });
+        });
     });
 

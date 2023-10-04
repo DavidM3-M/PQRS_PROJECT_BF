@@ -58,88 +58,38 @@ class FormularioController extends Controller
         exit;
     }
 
-    function mostrarInformacion($radicadoIdentificacion) {
+    function mostrarInformacion() {
 
+        $radicado =  $_POST['radicado'];
         $informacion = DB::table('formulario')
-                        ->join('informacion_solicitud', 'formulario.id', '=', 'informacion_solicitud.radicado')
-                        ->select('informacion_solicitud.radicado', 'formulario.created_at', 'informacion_solicitud.respuesta',
-                        'informacion_solicitud.updated_at', 'informacion_solicitud.estado', 'formulario.tipoSolicitud')
-                        ->where('informacion_solicitud.radicado', $radicadoIdentificacion)
-                        ->orWhere('formulario.numeroIdentificacion',$radicadoIdentificacion)
-                        ->get();
-        return $informacion;
+                            ->join('informacion_solicitud', 'formulario.id', '=', 'informacion_solicitud.radicado')
+                            ->select('informacion_solicitud.radicado', 'formulario.created_at', 'informacion_solicitud.respuesta', 'formulario.descripcion',
+                                    'informacion_solicitud.updated_at', 'informacion_solicitud.estado', 'formulario.tipoSolicitud')
+                            ->where('informacion_solicitud.radicado', $radicado)
+                            ->get();
+
+        return response(json_encode($informacion),200)->header('Content-type','text/plain');
     }
-    public function cargarDatosDesdeModelo() {
-
-// controlador.php
-
-    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        // Verificar si la solicitud es una POST (como lo hace AJAX)
-
-        // Obtener la acción enviada por AJAX
-        $accion = isset($_POST['accion']) ? $_POST['accion'] : '';
-
-        if ($accion === 'cargarDatosPorId') {
-            // Obtener el ID enviado por AJAX
-            $id = isset($_POST['id']) ? intval($_POST['id']) : 0;
-
-            // Validar el ID (puedes agregar más validaciones según tus necesidades)
-            if ($id > 0) {
-                // Realizar una consulta al Modelo para obtener los datos por ID
-                $datos = $this->obtenerDatosPorId($id);
-
-                // Devolver los datos como respuesta (en este ejemplo, se construye una tabla HTML)
-                if ($datos) {
-                    echo '<table>';
-                    echo '<tr><th>ID</th><th>Nombre</th><th>Descripción</th></tr>';
-                    echo '<tr>';
-                    echo '<td>' . $datos['informacionRadicado'] . '</td>';
-                    echo '<td>' . $datos['informacionRadicado'] . '</td>';
-                    echo '<td>' . $datos['informacionRadicado'] . '</td>';
-                    echo '</tr>';
-                    echo '</table>';
-                } else {
-                    echo 'No se encontraron datos para el ID seleccionado.';
-                }
-            } else {
-                echo 'ID no válido.';
-            }
-        }
-    }
-}
-
-function obtenerDatosPorId($radicadoIdentificacion) {
-
-
-    $informacion = DB::table('formulario')
-                        ->join('informacion_solicitud', 'formulario.id', '=', 'informacion_solicitud.radicado')
-                        ->select('informacion_solicitud.radicado', 'formulario.created_at', 'informacion_solicitud.respuesta',
-                        'informacion_solicitud.updated_at', 'informacion_solicitud.estado', 'formulario.tipoSolicitud')
-                        ->where('informacion_solicitud.radicado', $radicadoIdentificacion)
-                        ->orWhere('formulario.numeroIdentificacion',$radicadoIdentificacion)
-                        ->get();
-    return $informacion->fetch();
-}
 
 
     public function buscarRadicado(Request $request)
     {
         $radicadoIdentificacion = trim($request->input('radicadoIdentificacion'));
 
-        $informacion = $this->mostrarInformacion($radicadoIdentificacion);
+        $informacion = DB::table('formulario')
+                            ->join('informacion_solicitud', 'formulario.id', '=', 'informacion_solicitud.radicado')
+                            ->select('informacion_solicitud.radicado')
+                            ->where('informacion_solicitud.radicado', $radicadoIdentificacion)
+                            ->orWhere('formulario.numeroIdentificacion',$radicadoIdentificacion)
+                            ->get();
 
-        if($informacion->isEmpty()){
+        if(count($informacion) == 0){
 
             return view('index');
 
             }else{
 
                 return view('resultado-busqueda', compact('informacion'));
-                // if ($informacion->count() == 1) {
-                // return view('resultado-busqueda', compact('informacion'));
-                // }else{
-                // return view('lista-solicitudes', compact('informacion'));
-                // }
             }
         }
 

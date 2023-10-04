@@ -38,7 +38,7 @@
     display: flex; /* Utilizamos Flexbox para distribuir los divs horizontalmente */
     height: 120%; /* Altura del header */
     color: black; /* Color del texto */
-    margin-bottom: 4%;
+    margin-bottom: 2%;
     padding: 0;
     /* Ruta de la imagen de fondo */
     background-color: #00498B;
@@ -66,20 +66,18 @@
 
 body {
     margin: 0;
-    padding: 0;
     font-family: 'Poppins', sans-serif;
+    margin-bottom: 2%; /* Elimina el relleno por defecto del body */
 }
-
 .container {
     max-width: 70%;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     display: flex;
     flex-wrap: wrap;
     border-radius: 20px;
     box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3);
     background-color: white;
-    margin-bottom: 20px;
-
+    /* padding-bottom: 40px; */
 }
 
 .container::before {
@@ -189,7 +187,7 @@ body {
 
 label{
     font-family: 'Poppins', sans-serif;
-    font-size: 15px;
+    font-size: 17px;
 }
 
 .container2 {
@@ -321,12 +319,11 @@ label{
     .container {
         flex-direction: column;
         max-width: 100%;
-
     }
-    .column {
+    /* .column {
         width: 100%;
         margin-bottom: 20px;
-    }
+    } */
     .header {
         font-size: 12px;
         flex-direction: column;
@@ -350,6 +347,10 @@ label{
         margin-top: 10px;
     }
 
+    .send_btn {
+        margin-bottom: 10%;
+    }
+
     .header-title {
         font-size: 14px;
         font-family: 'Poppins', sans-serif;
@@ -366,8 +367,12 @@ label{
         margin-bottom: 20px;
     }
     .column {
+        width: 100%;
         flex: 1;
         padding: 0px;
+    }
+    body {
+        padding-bottom: 0%; /* Elimina el relleno por defecto del body */
     }
 }
 

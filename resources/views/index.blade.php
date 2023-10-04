@@ -23,7 +23,7 @@
                 <h1 class="header-title">SISTEMA DE PQRSF - UNIAUTÓNOMA DEL CAUCA</h1>
             </div>
         </header>
-        <form id="request" action="formulario/guardarDatos" method="POST">
+        <form class="formulario" id="request" action="formulario/guardarDatos" method="POST">
             @csrf
             <div class="container">
                 <div class="column">

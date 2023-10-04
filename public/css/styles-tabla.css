@@ -26,12 +26,13 @@ th {
 
 tr:last-child td {
     border: none;
-    margin-bottom: 200px;
+    margin-bottom: 20px;
 }
 
 .columna2{
     font-family:'Poppins', sans-serif;
     text-align: justify;
+
 }
 
 
@@ -40,7 +41,19 @@ tr:last-child td {
     font-weight: bold;
 }
 
-
+.select_radicado {
+    border: #0f98f8 solid 1px;
+    border-radius: 10px;
+    margin-bottom: 25px;
+    width: 25%;
+    height: 40px;
+    background: transparent;
+    color: black;
+    font-size: 18px;
+    font-weight: normal;
+    font-family: 'Poppins', sans-serif;
+    padding: 0 15px;
+}
 
 
 

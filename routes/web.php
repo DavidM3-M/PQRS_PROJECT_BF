@@ -20,8 +20,9 @@ Route::get('/', function () {
 
 Route::post('formulario/guardarDatos', 'App\Http\Controllers\FormularioController@guardarDatos');
 Route::post('buscarRadicado', 'App\Http\Controllers\FormularioController@buscarRadicado');
-Route::post('/verInformacion', 'App\Http\Controllers\FormularioController@cargarDatosDesdeModelo');
-Route::get('/ciudades', 'CiudadController@getCiudadesByEstado');
+// Route::get('/buscarRadicado/{id}', 'App\Http\Controllers\FormularioController@mostrarInformacion');
+Route::post('/mostrarInformacion','App\Http\Controllers\FormularioController@mostrarInformacion');
+
 // Route::get('/resultado-busqueda', 'Controller@index')->name('otraVista');
 // Route::get('obtenerRadicados', 'App\Http\Controllers\FormularioController@obtenerRadicados');
 
