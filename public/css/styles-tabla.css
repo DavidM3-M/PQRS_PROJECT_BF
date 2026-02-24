@@ -55,5 +55,13 @@ tr:last-child td {
     padding: 0 15px;
 }
 
+.navbar {
+    border-radius: 10px;
+}
 
-
+.password-toggle {
+    float: right;
+    position: relative;
+    margin: -25px 10px 0 0;
+    cursor: pointer;
+}

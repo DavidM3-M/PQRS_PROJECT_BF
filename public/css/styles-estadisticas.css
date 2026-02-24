@@ -1,0 +1,31 @@
+
+
+.contenedor {
+    display: flex;
+    height: 90%;
+}
+
+.izquierda {
+    flex: 0 0 25%; /* Ocupa el 30% del ancho sin crecer ni encoger */
+    background-color: white;
+
+}
+
+.derecha {
+    flex: 0 0 72%; /* Ocupa el espacio restante (70%) */
+    background-color: white;
+    padding-top:60px;
+}
+
+th, td {
+    border: white solid 1px;
+    padding-top: 20px;
+    text-align: center;
+    background-color: #557ea1;
+
+}
+.color-fila {
+    background-color: #557ea1;
+    border: white solid 1px; border-radius:10px;
+    color:black;
+}

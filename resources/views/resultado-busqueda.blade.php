@@ -5,20 +5,22 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <title>PQRSF-Uniautónoma del Cauca</title>
-        <link rel="stylesheet" href="{{ asset ('css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/styles-inicio.css') }}">
-        <link rel="stylesheet" href="{{ asset('css/styles-tabla.css') }}">
+        <title>Buscar-Solicitud</title>
+        <link rel="icon" href="images/logoU.ico">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/styles-inicio.css">
+        <link rel="stylesheet" href="css/styles-tabla.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
         <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.1.7/dist/sweetalert2.all.min.js"></script>
         <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-        <script src="js/eventos.js"></script>
+        <script src="js/ajax.js"></script>
     </head>
     <body>
         <header class="header">
             <div class="left-div">
                 <div class="logo">
-                    <a href="index.php"><img src="images/logoAut1.png" alt="logoUniautonoma" class="header-image"></a>
+                    <a href="/inicio"><img src="images/logoAut1.png" alt="Uniautonoma" class="header-image"></a>
                 </div>
             </div>
             <div class="right-div">
@@ -26,24 +28,28 @@
             </div>
         </header>
 
-        <div class="container">
 
+        <div class="container">
+            <nav class="navbar navbar-light  justify-content-between" style="background-color: #ffff; font-family:Helvetica">
+                <a class="" style="color: blue; font-family: Poppins, FontAwesome" href="inicio" class="navbar-brand"><i class="fa-solid fa-arrow-left"></i><u>Atrás</u></a>
+                <a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a>
+                <label for="buscar">Ingrese el radicado o número de documento de identidad:&nbsp;&nbsp;&nbsp;</label>
+                <form class="form-inline">
+                    @csrf
+                    <input name="radicadoIdentificacion" id="dato" class="form-control mr-sm-2" type="search" required placeholder="Ingrese..." aria-label="Search">
+                    <button id="buscar" class="btn btn-outline-success my-2 my-sm-0" type="button">Buscar</button>
+                </form>
+            </nav>
             <table>
                 <thead>
                     <tr>
                         <th colspan="2">
-                            @if (count($informacion) > 1)
+                            <div id="miDiv" style="display: none;">
                                 <label for="radicado">Seleccione el radicado para más información</label>
                                 <select class="select_radicado" id="seleccionarRadicado"  name="radicado">
                                     <option value="" disabled selected>Seleccione...</option>
-                                        @for ($i=0; $i < count($informacion); $i++)
-                                            <option value="{{ $informacion[$i]->radicado }}">{{ $informacion[$i]->radicado }}</option>
-                                        @endfor
-                                    </select>
-                            @else
-                            <p>Información de la solicitud:</p>
-                            <input type="hidden" id="radicadoUnico" value="{{$informacion[0]->radicado}}">
-                            @endif
+                                </select>
+                            </div>
                         </th>
                     </tr>
                 </thead>
@@ -57,12 +63,16 @@
                         <td class="columna2" id="fechaSolicitud"></td>
                     </tr>
                     <tr>
-                        <td class="columna1">Descripción de solicitud</td>
-                        <td class="columna2" id="descripcionSolicitud"></td>
+                        <td class="columna1">TIPO DE SOLICITUD</td>
+                        <td class="columna2" id="tipoSolicitud"></td>
                     </tr>
                     <tr>
                         <td class="columna1">ESTADO</td>
                         <td class="columna2" id="estado"></td>
+                    </tr>
+                    <tr>
+                        <td class="columna1">Descripción de solicitud</td>
+                        <td class="columna2" id="descripcionSolicitud"></td>
                     </tr>
                     <tr>
                         <td class="columna1">RESPUESTA</td>

@@ -6,14 +6,23 @@
     "license": "MIT",
     "require": {
         "php": "^8.1",
+        "barryvdh/laravel-dompdf": "^2.0",
+        "dompdf/dompdf": "^2.0",
         "guzzlehttp/guzzle": "^7.2",
+        "illuminate/mail": "*",
         "laravel/framework": "^10.10",
         "laravel/sanctum": "^3.2",
         "laravel/tinker": "^2.8",
-        "realrashid/sweet-alert": "^7.1"
+        "realrashid/sweet-alert": "^7.1",
+        "swiftmailer/swiftmailer": "*",
+        "symfony/http-client": "^6.3",
+        "symfony/mailgun-mailer": "^6.3",
+        "symfony/mime": "^6.3",
+        "symfony/postmark-mailer": "^6.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
+        "laravel-lang/common": "^5.0",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",

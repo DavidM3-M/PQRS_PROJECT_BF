@@ -11,23 +11,21 @@ return new class extends Migration
      */
     public function up(): void
     {
-        // Schema::create('formulario', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->timestamps();
-        // });
-        // Schema::create('formulario', function (Blueprint $table) {
-        //     $table->id();
-        //     $table->string('nombres');
-        //     $table->string('apellidos');
-        //     $table->enum('estado', ['Petición', 'Queja', 'Reclamo', 'Solicitud', 'Felicitación']);
-        //     $table->enum('anonimo', ['SI', 'NO']);
-        //     $table->enum('medio_respuesta', ['Correo', 'Celular', 'Físico']);
-        //     $table->string('direccion');
-        //     $table->string('correo');
-        //     $table->bigInteger('celular');
-        //     $table->text('descripcion');
-        //     $table->timestamps();
-        // });
+        Schema::create('formulario', function (Blueprint $table) {
+            $table->id();
+            $table->string('tipoSolicitante')->nullable();
+            $table->string('tipoSolicitud')->nullable();
+            $table->string('tipoUsuario');
+            $table->string('tipoIdentificacion')->nullable();
+            $table->string('numeroIdentificacion')->nullable();
+            $table->string('nombres')->nullable();
+            $table->string('celular')->nullable();
+            $table->string('correo')->nullable();
+            $table->string('respuestaFisica')->default('NO');
+            $table->string('rutaAdjunto')->nullable();
+            $table->text('descripcion')->nullable();
+            $table->timestamps();
+        });
     }
 
     /**
