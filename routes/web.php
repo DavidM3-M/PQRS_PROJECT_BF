@@ -18,7 +18,7 @@ Route::get('/', function () {
 });
 Route::view('/inicio', "index")->name('index');
 Route::view('/login', "login")->name('login');
-Route::view('/registro', "register")->name('register')->middleware('auth');
+Route::view('/registro', "register")->name('register')->middleware('guest');
 Route::view('/buscar-radicado', "resultado-busqueda")->name('resultado-busqueda');
 
 Route::post('/validar-registro','App\Http\Controllers\SessionController@register')->name('validar-registro');
