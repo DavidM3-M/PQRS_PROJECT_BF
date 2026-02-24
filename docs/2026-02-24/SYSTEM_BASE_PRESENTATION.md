@@ -1,3 +1,4 @@
+```markdown
 # Presentación: Base del sistema SistemaPqrsf
 
 Fecha: 2026-02-24
@@ -70,3 +71,5 @@ Sistema de gestión de PQRS (Peticiones, Quejas, Reclamos y Sugerencias) constru
 
 ---
 Archivo creado y commiteado al repo para presentación técnica.
+
+```

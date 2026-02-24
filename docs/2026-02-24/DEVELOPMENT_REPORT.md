@@ -1,3 +1,4 @@
+```markdown
 # Desarrollo y estado del proyecto SistemaPqrsf
 
 Fecha: 2026-02-24
@@ -71,3 +72,5 @@ Get-Content -Path .\storage\logs\laravel.log -Tail 50 -Wait
 
 ---
 Creado por: Equipo de desarrollo (acciones automáticas desde el entorno de trabajo)
+
+```

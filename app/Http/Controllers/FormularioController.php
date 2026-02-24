@@ -52,8 +52,12 @@ class FormularioController extends Controller
 
             $identificador = ($last && isset($last->id)) ? ($last->id + 1) : 1;
             $archivo = $request->file('archivoInput');
-            $rutaAdjunto = 'archivos_adjuntos_recibidos/' . "radicado_" . $identificador. "_". $archivo->getClientOriginalName();
+            $dateFolder = Carbon::now()->format('Y-m-d');
+            $safeName = preg_replace('/[^A-Za-z0-9_.-]/', '_', $archivo->getClientOriginalName());
+            $filename = 'radicado_' . $identificador . '_' . $safeName;
+            $rutaAdjunto = 'archivos_adjuntos_recibidos/' . $dateFolder . '/' . $filename;
             Storage::disk('local')->put($rutaAdjunto, file_get_contents($archivo));
+            Log::info('Archivo adjunto guardado', ['path' => $rutaAdjunto]);
         }
 
         $formulario = new Formulario;
